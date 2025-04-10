@@ -1,23 +1,22 @@
-# Thanks for checking out Marko
+#  Issue: Assets from Server-Only Marko Components Are Dropped by Vite
+# Problem
+When importing assets (e.g. images via `vite-imagetools`) inside Marko components used only in the server build, those assets are not emitted to `dist/public/assets`.
 
-# Installation
+Even though `emitFile()` is called (confirmed via logging), the assets are silently dropped unless the component explicity become a client-component.
+
+# Debugging
 
 ```
-npx @marko/create marko-app --template basic
-cd marko-app
 npm install
-npm run dev
+npm run build
 ```
+You will see no serve-image is being built in `dist/public/assets`.
 
-## Overview
 
-This project is powered by [@marko/run](https://github.com/marko-js/run).
+# Why It Matters
+- Assets used in SSR components vanish from production builds
+- Devs are forced to restructure components or fake client usage
+- It breaks expected behavior when using Vite plugins like vite-imagetools
 
-- Run `npm run dev` to start the development server
-- Run `npm run build` to build a production-ready node.js server
-- Run `npm run preview` to run the production server
 
-## Adding Pages
-
-Pages map to the directory structure. You can add additional pages by creating files/directories under `src/routes` with `+page.marko` files.  Learn more in the [`@marko/run` docs](https://github.com/marko-js/run/#file-based-routing).
 
