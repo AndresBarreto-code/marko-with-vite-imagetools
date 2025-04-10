@@ -1,0 +1,16 @@
+//@ts-expect-error: this is an import directive for vite-imagetools.
+
+import imageSrc from "./server-image.png?w=360";
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; font-size: clamp(1em, 2vw, 2em); padding: 1em; box-sizing: border-box; height: 100%; width: 100%;">
+  <h1>This is the server image component.</h1>
+  <img
+    src=imageSrc
+    sizes="100vw"
+    class="absolute bottom-0 left-0 right-0 top-0 h-full w-full object-cover object-[40%]"
+    loading="eager"
+    fetchpriority="high"
+    decoding="sync"
+    aria-hidden="true"
+    alt=""
+  >
+</div>
