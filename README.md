@@ -10,6 +10,11 @@ Even though `emitFile()` is called (confirmed via logging), the assets are silen
 npm install
 npm run build
 ```
+OR
+```
+npm install
+npm run preview
+```
 You will see no serve-image is being built in `dist/public/assets`.
 
 
